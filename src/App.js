@@ -454,6 +454,10 @@ function App() {
             >
               Unleash Your Energy Data
             </motion.p>
+                {/* TEMPORAL: Muestra la URL del backend para depuración */}
+                <p style={{ color: 'yellow', fontSize: '0.8em', marginTop: '5px' }}>
+                  Backend URL: {process.env.REACT_APP_BACKEND_URL}
+                </p>
           </motion.div>
 
           {/* Desktop Navigation */}
