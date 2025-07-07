@@ -32,9 +32,6 @@ function Login({ onLogin, onSwitchToRegister }) {
 
   return (
     <div className='min-h-screen flex items-center justify-center bg-black text-white'>
-      <p style={{ color: 'yellow', fontSize: '0.8em', marginTop: '5px' }}>
-  Backend URL: {process.env.REACT_APP_BACKEND_URL}
-</p>
       <form
         onSubmit={handleSubmit}
         className='bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-sm'
