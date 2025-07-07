@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { Wine } from 'lucide-react';
 
 const DRINKS = [
-  { name: 'Cubata', defaultPercent: 10, emoji: '🥃' },
-  { name: 'Cerveza', defaultPercent: 5, emoji: '🍺' },
-  { name: 'Vino', defaultPercent: 12, emoji: '🍷' },
-  { name: 'Whisky', defaultPercent: 40, emoji: '🥃' },
-  { name: 'Vodka', defaultPercent: 40, emoji: '🍸' },
-  { name: 'Ron', defaultPercent: 40, emoji: '🥃' },
+  { name: 'Cubata', defaultPercent: 10, defaultSize: 500, emoji: '🥃' },
+  { name: 'Cerveza', defaultPercent: 5, defaultSize: 330, emoji: '🍺' },
+  { name: 'Vino', defaultPercent: 12, defaultSize: 500, emoji: '🍷' },
+  { name: 'Whisky', defaultPercent: 40, defaultSize: 10, emoji: '🥃' },
+  { name: 'Vodka', defaultPercent: 40, defaultSize: 10, emoji: '🍸' },
+  { name: 'Ron', defaultPercent: 40, defaultSize: 10, emoji: '🥃' },
 ];
 
 const LEVELS = [
@@ -40,7 +40,7 @@ function calculateCups({ C, H, m, r, V, percent }) {
 export default function PartyMeter({ userSex, userWeight, onSaveProfile }) {
   const [drink, setDrink] = useState(DRINKS[0]);
   const [percent, setPercent] = useState(DRINKS[0].defaultPercent);
-  const [cupSize, setCupSize] = useState(200);
+  const [cupSize, setCupSize] = useState(DRINKS[0].defaultSize);
   const [hours, setHours] = useState(2);
   const [level, setLevel] = useState(LEVELS[1]);
   const [sex, setSex] = useState(userSex || 'male');
