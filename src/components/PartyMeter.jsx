@@ -12,9 +12,9 @@ const DRINKS = [
 ];
 
 const LEVELS = [
-  { label: 'Poco', value: 0.02, color: 'bg-green-400', emoji: '🙂' },
-  { label: 'Medio', value: 0.06, color: 'bg-yellow-400', emoji: '😅' },
-  { label: 'Extremo', value: 0.1, color: 'bg-red-500', emoji: '🥴' },
+  { label: 'Poco', value: 0.05, color: 'bg-green-400', emoji: '🙂' },
+  { label: 'Medio', value: 0.1, color: 'bg-yellow-400', emoji: '😅' },
+  { label: 'Extremo', value: 0.15, color: 'bg-red-500', emoji: '🥴' },
 ];
 
 // Corrige la fórmula para usar el método Widmark estándar y BAC en g/dL
@@ -41,7 +41,7 @@ export default function PartyMeter({ userSex, userWeight, onSaveProfile }) {
   const [drink, setDrink] = useState(DRINKS[0]);
   const [percent, setPercent] = useState(DRINKS[0].defaultPercent);
   const [cupSize, setCupSize] = useState(DRINKS[0].defaultSize);
-  const [hours, setHours] = useState(2);
+  const [hours, setHours] = useState(1);
   const [level, setLevel] = useState(LEVELS[1]);
   const [sex, setSex] = useState(userSex || 'male');
   const [weight, setWeight] = useState(userWeight || '');
