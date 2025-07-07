@@ -15,6 +15,17 @@ const Notifications = lazy(() => import('./components/Notifications'));
 const Login = lazy(() => import('./components/Login'));
 const Register = lazy(() => import('./components/Register'));
 
+// Configurar CORS para permitir tu frontend en Vercel
+const allowedOrigins = [
+  'https://deploy-monster.vercel.app', // Cambia esto por tu dominio en Vercel
+   // Para desarrollo local
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true // Si usas cookies o autenticación
+}));
+
 // Monster Energy style font CSS - using more authentic font
 const monsterFont = `
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Teko:wght@300;400;500;600;700&display=swap');
