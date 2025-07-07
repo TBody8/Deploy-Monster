@@ -12,9 +12,9 @@ const DRINKS = [
 ];
 
 const LEVELS = [
-  { label: 'Poco', value: 0.05, color: 'bg-green-400', emoji: '🙂' },
-  { label: 'Medio', value: 0.1, color: 'bg-yellow-400', emoji: '😅' },
-  { label: 'Extremo', value: 0.15, color: 'bg-red-500', emoji: '🥴' },
+  { label: 'Poco', value: 0.06, color: 'bg-green-400', emoji: '🙂' },
+  { label: 'Medio', value: 0.11, color: 'bg-yellow-400', emoji: '😅' },
+  { label: 'Extremo', value: 0.16, color: 'bg-red-500', emoji: '🥴' },
 ];
 
 // Corrige la fórmula para usar el método Widmark estándar y BAC en g/dL
