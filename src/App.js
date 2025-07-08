@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { Settings as SettingsIcon, Menu, X, LogOut } from 'lucide-react';
+import { Settings as SettingsIcon, Menu, X } from 'lucide-react';
 import './App.css';
 import * as mockData from './data/mockData';
 import Loader from './components/ui/Loader';
@@ -20,7 +20,6 @@ function App() {
   const [selectedDrinks, setSelectedDrinks] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
   const [notifications, setNotifications] = useState([]);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [bestStreak, setBestStreak] = useState(0);
 
   const [goals, setGoals] = useState({});
@@ -456,62 +455,7 @@ function App() {
               Logout
             </button>
           </nav>
-
-          {/* Mobile Menu Button */}
-          <div className='md:hidden'>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className='p-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors'
-              aria-label='Toggle menu'
-            >
-              {mobileMenuOpen ? <X className='w-6 h-6' /> : <Menu className='w-6 h-6' />}
-            </button>
-          </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <motion.div
-            className='md:hidden mt-4 p-4 bg-gray-900 rounded-lg border border-green-500/20'
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            <div className='space-y-2'>
-              <motion.button
-                onClick={() => {
-                  setShowSettings(true);
-                  setMobileMenuOpen(false);
-                }}
-                className='w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-all duration-300'
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1, duration: 0.3 }}
-                whileHover={{ x: 5 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <SettingsIcon className='w-6 h-6' />
-                <span className='monster-subtitle'>Settings</span>
-              </motion.button>
-              <motion.button
-                onClick={() => {
-                  handleLogout();
-                  setMobileMenuOpen(false);
-                }}
-                className='w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-red-600/80 rounded-lg transition-all duration-300'
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.3 }}
-                whileHover={{ x: 5 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <LogOut className='w-6 h-6' />
-                <span className='monster-subtitle'>Logout</span>
-              </motion.button>
-            </div>
-          </motion.div>
-        )}
       </motion.header>
 
       {/* Main Content */}
@@ -578,7 +522,7 @@ function App() {
             setShowHamburger(true);
           }
         }}
-        aria-label='Abrir menú IA'
+        aria-label='Abrir menú'
         style={{ display: 'flex', alignItems: 'center', zIndex: 10 }} // z-10 para que quede debajo del modal (z-50)
         disabled={
           showHamburger || showSettings || activeIAModal === 'partyMeter'
@@ -592,6 +536,8 @@ function App() {
         onSelect={(key) => {
           if (key === 'settings') {
             setShowSettings(true);
+          } else if (key === 'logout') {
+            handleLogout();
           } else {
             setActiveIAModal(key);
           }
