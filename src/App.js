@@ -505,12 +505,22 @@ function App() {
                 <SettingsIcon className='w-6 h-6' />
                 <span className='monster-subtitle'>Settings</span>
               </motion.button>
-                <button
-                  onClick={handleLogout}
-                  className='ml-4 px-3 py-2 bg-gray-800 text-white rounded hover:bg-red-600 transition'
-                >
-                  Logout
-                </button>
+                {/* BOTÓN DE LOGOUT PARA MÓVILES (AQUÍ ESTÁ) */}
+              <motion.button
+                onClick={() => {
+                  handleLogout();
+                  setMobileMenuOpen(false);
+                }}
+                className='w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-red-600/80 rounded-lg transition-all duration-300'
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 0.3 }}
+                whileHover={{ x: 5 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <LogOut className='w-6 h-6' />
+                <span className='monster-subtitle'>Logout</span>
+              </motion.button>
             </div>
           </motion.div>
         )}
