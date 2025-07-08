@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { Settings as SettingsIcon, Menu, X } from 'lucide-react';
+import { Settings as SettingsIcon, Menu, X, LogOut } from 'lucide-react';
 import './App.css';
 import * as mockData from './data/mockData';
 import Loader from './components/ui/Loader';
@@ -14,28 +14,6 @@ const Settings = lazy(() => import('./components/Settings'));
 const Notifications = lazy(() => import('./components/Notifications'));
 const Login = lazy(() => import('./components/Login'));
 const Register = lazy(() => import('./components/Register'));
-
-
-
-// Monster Energy style font CSS - using more authentic font
-const monsterFont = `
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Teko:wght@300;400;500;600;700&display=swap');
-  
-  .monster-title {
-    font-family: 'Teko', 'Bebas Neue', sans-serif;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-  }
-
-  .monster-subtitle {
-    font-family: 'Teko', sans-serif;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-`;
 
 function App() {
   const [consumptionData, setConsumptionData] = useState([]);
@@ -478,6 +456,17 @@ function App() {
               Logout
             </button>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <div className='md:hidden'>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className='p-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors'
+              aria-label='Toggle menu'
+            >
+              {mobileMenuOpen ? <X className='w-6 h-6' /> : <Menu className='w-6 h-6' />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -505,7 +494,6 @@ function App() {
                 <SettingsIcon className='w-6 h-6' />
                 <span className='monster-subtitle'>Settings</span>
               </motion.button>
-                {/* BOTÓN DE LOGOUT PARA MÓVILES (AQUÍ ESTÁ) */}
               <motion.button
                 onClick={() => {
                   handleLogout();
