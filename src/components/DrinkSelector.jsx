@@ -348,7 +348,7 @@ const DrinkSelector = ({ onDrinkSelect, selectedDrinks = [] }) => {
                     className='flex-1 bg-green-500 hover:bg-green-600 text-black font-bold py-3 px-4 rounded-lg transition-colors monster-subtitle'
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    disabled={!customPrice || parseFloat(customPrice) <= 0}
+                    disabled={!customPrice || parseFloat(customPrice) < 0}
                   >
                     Add Monster
                   </motion.button>
