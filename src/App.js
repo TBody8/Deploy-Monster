@@ -505,6 +505,12 @@ function App() {
                 <SettingsIcon className='w-6 h-6' />
                 <span className='monster-subtitle'>Settings</span>
               </motion.button>
+                <button
+                  onClick={handleLogout}
+                  className='ml-4 px-3 py-2 bg-gray-800 text-white rounded hover:bg-red-600 transition'
+                >
+                  Logout
+                </button>
             </div>
           </motion.div>
         )}
